@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="genarate-pin">
+            <div class="text1">
+                <input type="text" name="" id="get-pin" class="get-pin">
+            </div>
+            <div class="pin-genarate-button">
+               <button class="pin-dao" id="pin-dao" onclick="genareteBtn()">
+                   Genarate <br> Pin
+               </button>
+            </div>
+        </div>
+        <div class="genarate-pin">
+            <div class="text2">
+                <input type="text" id="pin-apply" class="pin-apply">
+            </div>
+           <div class="buttons">
+            <button class="number-c" onclick="deleteBtn()">C</button><br>
+            <button class="number" onclick="nbtn('9')">9</button>
+            <button class="number" onclick="nbtn('8')">8</button>
+            <button class="number" onclick="nbtn('7')">7</button><br>
+            <button class="number" onclick="nbtn('6')">6</button>
+            <button class="number" onclick="nbtn('5')">5</button>
+            <button class="number" onclick="nbtn('4')">4</button><br>
+            <button class="number" onclick="nbtn('3')">3</button>
+            <button class="number" onclick="nbtn('2')">2</button>
+            <button class="number" onclick="nbtn('1')">1</button><br>
+            <button class="number" onclick="nbtn('0')">0</button>
+            <button class="submite" onclick="answare()">Submite</button>
+    
+           </div>
+        </div>
+    </div>
+    <div class="para">
+        <div class="right-answare" id="success">
+            <p>This is the right answare</p>
+        </div>
+        <div class="right-answare" id="fail">
+            <p>This is the wrong answare</p>
+        </div>
+    </div>
+    
+    
+    <script>
+    
+        function nbtn(Newvalue){
+          const applyPin = document.getElementById("pin-apply").value += Newvalue;
+       }
+    
+       function deleteBtn(){
+           document.getElementById("pin-apply").value = ''
+           document.getElementById("get-pin").value = ''
+       }
+    
+       function  genareteBtn(){
+        const pin = Math.round(Math.random() * 10000);
+        const pinString = pin + '';
+        const genaretePin = document.getElementById("get-pin").value = pinString;
+       }
+    
+       function answare(){
+           const jaPelam = document.getElementById("get-pin").value
+           const jaBosalam = document.getElementById("pin-apply").value
+           const right = document.getElementById("success");
+           const wrong = document.getElementById("fail");
+           if(jaPelam  == jaBosalam){
+              right.style.display = 'block';
+              wrong.style.display = 'none' ;
+           }else{
+            right.style.display = 'none';
+              wrong.style.display = 'block' ;
+           }
+       }
+    
+    </script>
+</body>
+</html>
